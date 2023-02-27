@@ -1,0 +1,13 @@
+sudo kind create cluster --image kindest/node:v1.21.1 --config kind-config.yaml
+sudo kubectl cluster-info --context kind-kind
+sudo helm repo add apache-airflow https://airflow.apache.org
+sudo helm repo update
+export RELEASE_NAME=example-release
+sudo helm install $RELEASE_NAME apache-airflow/airflow --namespace $NAMESPACE
+export NAMESPACE=example-namespace
+sudo helm install $RELEASE_NAME apache-airflow/airflow \
+  --namespace $NAMESPACE \
+  --set-string "env[0].name=AIRFLOW__CORE__LOAD_EXAMPLES" \
+  --set-string "env[0].value=True"
+sudo kubectl get pods --namespace $NAMESPACE
+sudo helm list --namespace $NAMESPACE

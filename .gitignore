@@ -1,0 +1,8 @@
+bkup/quarto.deb
+.env
+bkup
+Nginx
+data
+logs
+plugins
+.ipynb_checkpoints/

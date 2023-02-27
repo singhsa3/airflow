@@ -1,0 +1,7 @@
+beautifulsoup4
+pandas
+mlflow
+scikit-learn
+hyperopt
+jupyterlab
+nbdev
